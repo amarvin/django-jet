@@ -129,14 +129,14 @@ class DashboardModule(object):
 
         if self.model.settings:
             try:
-                self.settings = json.loads(self.model.settings)
+                self.settings = json.loads(str(self.model.settings))
                 self.load_settings(self.settings)
             except ValueError:
                 pass
 
         if self.store_children() and self.model.children:
             try:
-                children = json.loads(self.model.children)
+                children = json.loads(str(self.model.children))
                 self.load_children(children)
             except ValueError:
                 pass
